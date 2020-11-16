@@ -1,21 +1,18 @@
 <template>
   <div id="app">
-    <Header />
-    <Search />
-    <img src="../public/meetup-landing-page.jpg" class="landing-image" alt="" />
+    <Header></Header>
+     <router-view></router-view>
     <!-- <Events/> -->
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Search from "./components/Search.vue";
+ import Header from "./components/Header.vue";
 // import Events from "./components/Events.vue"
 export default {
   name: "App",
   components: {
-    Header,
-    Search,
+     Header,
     // Events,
   },
 };
@@ -31,5 +28,14 @@ export default {
 .landing-image {
   width: 100%;
   margin-top: -150px;
+}
+@media (min-width: 576px) { 
+    .container{
+        max-width:475px !important;
+    }
+}
+h3{
+  font-weight: bold !important;
+  margin-bottom: 25px !important;
 }
 </style>
