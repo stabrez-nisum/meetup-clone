@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-   <signup></signup>
+    <Header />
+    <Search />
+    <img src="../public/meetup-landing-page.jpg" class="landing-image" alt="" />
+    <!-- <Events/> -->
   </div>
 </template>
 
 <script>
-import Signup from './components/Signup.vue';
+import Header from "./components/Header.vue";
+import Search from "./components/Search.vue";
+// import Events from "./components/Events.vue"
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Signup
-  }
-}
+    Header,
+    Search,
+    // Events,
+  },
+};
 </script>
 
 <style>
@@ -19,8 +26,10 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.landing-image {
+  width: 100%;
+  margin-top: -150px;
 }
 </style>
