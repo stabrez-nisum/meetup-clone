@@ -1,17 +1,27 @@
 <template>
-<div>
+  <div>
+      <img
+      src="../../public/meetup-landing-page.jpg"
+      class="landing-image"
+      alt=""
+    />
     <Search></Search>
-     <img src="../../public/meetup-landing-page.jpg" class="landing-image" alt="" />
-</div>
+    <Events />
+    
+       
+  </div>
 </template>
 
 <script>
 import Search from "./Search.vue";
+import Events from "./Events.vue";
 
 export default {
-    name : "Home",
-    components:{
+  name: "Home",
+  components: {
     Search,
-    },
-}
+    Events,
+    
+  },
+};
 </script>

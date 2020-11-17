@@ -42,7 +42,8 @@
         >.
       </p>
       <hr />
-      <div>Already a member? Log in.</div>
+      <div>
+        Already a member? <b-button variant="danger">Log in</b-button></div>
     </form>
   </div>
 </template>

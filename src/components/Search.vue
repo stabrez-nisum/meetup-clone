@@ -8,15 +8,18 @@
             placeholder="Search Events"
           ></b-form-input>
 
-          <b-form-input
-            class="mr-sm-2"
-            v-model="text"
-            placeholder="Location"
-          ></b-form-input>
+          <b-form-input class="mr-sm-2" placeholder="Location"></b-form-input>
 
-          <b-button class="mr-sm-2"><b-icon icon="joystick"></b-icon></b-button>
+          <b-button class="mr-sm-2" variant="danger"
+            ><b-icon icon="joystick"></b-icon
+          ></b-button>
 
-          <b-button variant="success" class="my-2 my-sm-0" type="submit"
+          <b-button
+            variant="danger"
+            size="lg"
+            pill
+            class="my-2 my-sm-0"
+            type="submit"
             >Search</b-button
           >
         </b-nav-form>
