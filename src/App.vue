@@ -1,19 +1,20 @@
 <template>
   <div id="app">
     <Header></Header>
-     <router-view></router-view>
-    <!-- <Events/> -->
+    <router-view></router-view>
+    <Footer/> 
   </div>
 </template>
 
 <script>
- import Header from "./components/Header.vue";
-// import Events from "./components/Events.vue"
+import Header from "./components/Header.vue";
+
+import Footer from "./components/Footer.vue"
 export default {
   name: "App",
   components: {
-     Header,
-    // Events,
+    Header,
+    Footer
   },
 };
 </script>
@@ -27,14 +28,15 @@ export default {
 }
 .landing-image {
   width: 100%;
-  margin-top: -150px;
+  height: 70%;
+  margin-top: -500px;
 }
-@media (min-width: 576px) { 
-    .container{
-        max-width:475px !important;
-    }
+@media (min-width: 576px) {
+  .container {
+    max-width: 475px !important;
+  }
 }
-h3{
+h3 {
   font-weight: bold !important;
   margin-bottom: 25px !important;
 }
