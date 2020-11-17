@@ -1,81 +1,49 @@
 <template>
   <div class="d-flex justify-content-around my-5">
-  <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mr-2 mb-2"
-  >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
+    <b-card
+      :title="event.name"
+      :img-src="event.image"
+      img-alt="Image"
+      img-top
+      tag="article"
+      style="max-width: 20rem"
+      class="mr-2 mb-2"
+      v-for="(event, eventIndex) in eventList"
+      :key="eventIndex"
+    >
+      <b-card-text>
+        <strong
+          ><p>
+            {{ event.info }}
+          </p>
+        </strong>
+        <p>{{ event.description }}</p>
+      </b-card-text>
 
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
-
-  <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mr-2 mb-2"
-  >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
-
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
-
-  <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mr-2 mb-2"
-  >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
-
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
-
-  
-<b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
-  >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
-
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
-
-
-</div>
+      <template #footer>
+        <p>
+          Organized by <strong>{{ event.organizer }}</strong>
+        </p>
+        <b-button href="#" variant="primary">Checkout Event</b-button>
+      </template>
+    </b-card>
+  </div>
 </template>
 
 <script>
 export default {
-    name:"Events"
-
-}
+  name: "Events",
+  props: {
+    eventList: {
+      type: Array,
+      required: true,
+    },
+  },
+  mounted() {
+    console.log(this.eventList);
+  },
+};
 </script>
 
 <style>
-
 </style>

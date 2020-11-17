@@ -1,0 +1,42 @@
+[
+    {
+        "_id": "5bd44827429e8654fc8e5a4c1",
+        "name": "Hyderabad Orators Club",
+        "image": "https://secure.meetupstatic.com/photos/event/9/6/b/600_486422411.jpeg",
+        "organizer": "Tabrez",
+        "location":"Hyderabad",
+        "info":"Sunday, November 22, 2020 3:00 PM to 5:00 PM GMT+5:30 Every 4th Sunday of the month until December 27, 2020",
+        "attendees": 10,
+        "description": "Hyderabad Orators Club first meet 2020"
+    },
+    {
+        "_id": "5bd44827429e8654fc8e5a4c2",
+        "name": "Build Smart on Kubernetes - Part 02/03",
+        "image": "https://secure.meetupstatic.com/photos/event/9/2/1/a/highres_486937402.jpeg",
+        "organizer": "Harika",
+        "location":"Bangalore",
+        "info":"Saturday, November 21, 2020 3:00 PM to 5:00 PM GMT+5:30",
+        "attendees": 5,
+        "description": "AGENDA - Deployment Strategies - Exercise: Deployment Strategies - Template Overview and Elements - Exercise: Install and work with Templates"
+    },
+    {
+        "_id": "5bd44827429e8654fc8e5a4c3",
+        "name": "Bob the Builder - Fullstack Javascript Earth #05",
+        "image": "https://secure.meetupstatic.com/photos/event/d/c/d/c/600_492896540.jpeg",
+        "organizer": "Ankush",
+        "location":"Mumbai",
+        "info":"Saturday, November 21, 2020 10:00 AM to 12:00 PM GMT+5:30",
+        "attendees": 12,
+        "description": "We created the Fullstack India Meetup group to form a community of passionate developers to discuss ideas on new programming ideas. This group is for anyone who is interested in staying up to date with recent innovations in the frontend/fullstack ecosystem."
+    },
+    {
+        "_id": "5bd44827429e8654fc8e5a4c4",
+        "name": "PyConf Hyderabad 2020 - Online - 5th & 6th December",
+        "image": "https://secure.meetupstatic.com/photos/event/c/7/8/6/highres_492831078.jpeg",
+        "organizer": "Sravani",
+        "location":"Hyderabad",
+        "info":"Saturday, December 5, 2020, 10:00 AM to Sunday, December 6, 2020, 5:00 PM GMT+5:30",
+        "attendees": 30,
+        "description": "We are back with the 3rd Edition of PyConf Hyderabad 2020. PyConf Hyderabad is the regional gathering for the community that uses and develops the open-source Python Programming Language."
+    }
+]
