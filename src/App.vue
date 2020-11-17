@@ -39,5 +39,6 @@ export default {
 h3 {
   font-weight: bold !important;
   margin-bottom: 25px !important;
+  text-align: center;
 }
 </style>
