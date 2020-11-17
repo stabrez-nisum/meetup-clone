@@ -8,7 +8,21 @@
             placeholder="Search Events"
           ></b-form-input>
 
-          <b-form-input class="mr-sm-2" placeholder="Location"></b-form-input>
+          <b-form-input
+            class="mr-sm-2"
+            placeholder="Location"
+            list="location"
+            v-model="selectedLocation"
+          ></b-form-input>
+
+          <datalist id="location">
+            <option
+              v-for="(location, locationIndex) in locations"
+              :key="locationIndex"
+            >
+              {{ location }}
+            </option>
+          </datalist>
 
           <b-button class="mr-sm-2" variant="danger"
             ><b-icon icon="joystick"></b-icon
@@ -31,6 +45,12 @@
 <script>
 export default {
   name: "Search",
+  data() {
+    return {
+      selectedLocation:"",
+      locations: ["Hyderabad", "Mumbai", "Bangalore", "Delhi"],
+    };
+  },
 };
 </script>
 
