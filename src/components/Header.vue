@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg">
-      <b-navbar-brand href="#/home">
+      <b-navbar-brand href="/">
         <img src="../../public/meetup-logo.svg" alt="Meetup" class="logo" />
       </b-navbar-brand>
       
@@ -21,9 +21,8 @@
 
       <b-collapse v-else id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-           <b-nav-item href="#/"><strong>Home</strong></b-nav-item>
-          <b-nav-item href="#/login"><strong>Login</strong></b-nav-item>
-          <b-nav-item href="#/signup"><strong>Signup</strong></b-nav-item>
+          <b-nav-item href="/login"><strong>Login</strong></b-nav-item>
+          <b-nav-item href="/signup"><strong>Signup</strong></b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
