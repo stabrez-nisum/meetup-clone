@@ -6,20 +6,20 @@
       alt=""
     />
     <Search></Search>
-    <Events :eventList="globalEvents" />
+    <EventsList :eventList="globalEvents" />
   </div>
 </template>
 
 <script>
 import Search from "./Search.vue";
-import Events from "./Events.vue";
+import EventsList from "./EventsList.vue";
 import GlobalEvents from "../../public/global_events.json";
 
 export default {
   name: "Home",
   components: {
     Search,
-    Events,
+    EventsList,
   },
   data() {
     return {
