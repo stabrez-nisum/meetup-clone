@@ -1,5 +1,16 @@
 <template>
   <div>
+    <b-button @click="$bvToast.show('login-toast')">Toast</b-button>
+    <b-toast id="login-toast" variant="danger" >
+      <template #toast-title>
+        <div class="d-flex flex-grow-1 align-items-baseline">
+          <strong class="mr-auto">Welcome, </strong>
+          <small class="text-muted mr-2">2 seconds ago</small>
+        </div>
+      </template>
+      Login Successful
+    </b-toast>
+
     <form id="login-form" class="container">
       <h3>Login</h3>
 
