@@ -18,6 +18,7 @@ Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
