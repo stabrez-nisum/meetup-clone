@@ -58,7 +58,7 @@ export default {
   computed: {
     isUser() {
       // Based on condition verify user
-      return true;
+      return false;
     },
   },
 };
