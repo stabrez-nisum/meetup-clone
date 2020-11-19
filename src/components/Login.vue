@@ -1,14 +1,23 @@
 <template>
   <div>
-    <b-button @click="$bvToast.show('login-toast')">Toast</b-button>
-    <b-toast id="login-toast" variant="danger" >
+    <b-toast id="login-toast" variant="success">
       <template #toast-title>
         <div class="d-flex flex-grow-1 align-items-baseline">
-          <strong class="mr-auto">Welcome, </strong>
+          <strong class="mr-auto">Welcome, {{ loggedInUser }} </strong>
           <small class="text-muted mr-2">2 seconds ago</small>
         </div>
       </template>
       Login Successful
+    </b-toast>
+
+    <b-toast id="error-toast" variant="danger">
+      <template #toast-title>
+        <div class="d-flex flex-grow-1 align-items-baseline">
+          <strong class="mr-auto">Login Failure </strong>
+          <small class="text-muted mr-2">2 seconds ago</small>
+        </div>
+      </template>
+      Password or username is incorrect, please try again...
     </b-toast>
 
     <form id="login-form" class="container">
@@ -36,7 +45,7 @@
       </div>
       <hr />
       <div style="text-align: center">
-        Already a member? <router-link to="/signup">SignUp.</router-link>
+        Don't have an account? <router-link to="/signup">SignUp.</router-link>
       </div>
     </form>
   </div>
@@ -48,32 +57,37 @@ export default {
   data() {
     return {
       loginForm: { email: "", password: "" },
-      usersList : []
+      usersList: [],
+      loggedInUser: "",
     };
   },
   props: ["users"],
   mounted() {
-    this.usersList = this.users
+    this.usersList = this.users;
     if (localStorage.users) {
       this.usersList = JSON.parse(localStorage.users);
     }
   },
   methods: {
     login() {
-      var loginuser = this.usersList.find(
+      var loginUser = this.usersList.find(
         (el) => el.email.toLowerCase() == this.loginForm.email.toLowerCase()
       );
-      if (loginuser) {
-        if (loginuser.password === this.loginForm.password) {
-          this.loginForm["name"] = loginuser.name;
-          localStorage.setItem("loggedInUser", JSON.stringify(this.loginForm));
-          //  popupUtils.methods.successAlert();
-          this.$swal('Success', 'Logged in successfully', 'OK');
+      if (loginUser) {
+        if (loginUser.password === this.loginForm.password) {
+          this.loginForm["name"] = loginUser.name;
+          localStorage.setItem("loginUser", JSON.stringify(this.loginForm));
+          this.loggedInUser = loginUser.name;
+          this.$bvToast.show("login-toast");
+          this.$store.commit("updateState", true);
+          this.$router.push("/home");
         } else {
-          this.$swal('Failure', 'Password is incorrect..Please try with valid password', 'OK');
+          this.$bvToast.show("error-toast");
+          this.$store.commit("updateState", false);
         }
       } else {
-        this.$swal('Failure', 'Uesr is not registered', 'OK');
+        this.$bvToast.show("error-toast");
+        this.$store.commit("updateState", false);
       }
     },
   },

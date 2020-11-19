@@ -75,9 +75,8 @@ export default {
       var longitude = "&longitude=" + long;
       var query = latitude + longitude + "&localityLanguage=en";
       var vm = this;
-      
+
       const Http = new XMLHttpRequest();
-    
       var bigdatacloud_api =
         "https://api.bigdatacloud.net/data/reverse-geocode-client?";
 

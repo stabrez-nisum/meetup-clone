@@ -1,5 +1,26 @@
 <template>
   <div>
+    <div>
+      <b-toast id="success-toast" variant="success">
+        <template #toast-title>
+          <div class="d-flex flex-grow-1 align-items-baseline">
+            <strong class="mr-auto">Login Failure </strong>
+            <small class="text-muted mr-2">2 seconds ago</small>
+          </div>
+        </template>
+        Registered Successfully..
+      </b-toast>
+
+      <b-toast id="error-toast" variant="danger">
+        <template #toast-title>
+          <div class="d-flex flex-grow-1 align-items-baseline">
+            <strong class="mr-auto">Login Failure </strong>
+            <small class="text-muted mr-2">2 seconds ago</small>
+          </div>
+        </template>
+        You have been already registered.
+      </b-toast>
+    </div>
     <form id="signup-form" class="container">
       <h3>Sign up</h3>
       <div class="form-group">
@@ -47,7 +68,7 @@
           >Cookie Policy</a
         >.
       </p>
-      <hr>
+      <hr />
       <div style="text-align: center">
         Already a member? <router-link to="/login">Log in.</router-link>
       </div>
@@ -74,14 +95,15 @@ export default {
       let registeredUser = this.users.find(
         (el) => el.email == this.signupForm.email
       );
+      console.log(registeredUser);
       if (!registeredUser) {
         this.users.push(this.signupForm);
         localStorage.setItem("users", JSON.stringify(this.users));
-        this.$swal('Success', 'Registerd successfully', 'OK');
-      }else if(registeredUser){
-        this.$swal('Failure', 'You have already registered', 'OK');
-      }else{
-        this.$swal('Failure', 'Please fill the details', 'OK');
+        this.$bvToast.show("success-toast");
+      } else if (registeredUser) {
+        this.$bvToast.show("error-toast");
+      } else {
+        this.$bvToast.show("error-toast");
       }
     },
   },

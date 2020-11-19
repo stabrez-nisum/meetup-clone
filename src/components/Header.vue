@@ -28,8 +28,8 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <b-button class="mr-1" variant="danger" pill>T</b-button>
-              <strong>Tabrez</strong>
+              <b-button class="mr-1" variant="danger" pill>{{nameIcon}}</b-button>
+              <strong>{{userName}}</strong>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
@@ -52,13 +52,24 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+     userName : "",
+     nameIcon : ""
+    }
+  },
   mounted() {
-    // Init operations
+    let userName = localStorage.getItem("loginUser");
+    userName = JSON.parse(userName);
+    if(userName){
+    this.userName = userName.name;
+    this.nameIcon = (this.userName.charAt(0)).toUpperCase();
+    }
   },
   computed: {
     isUser() {
       // Based on condition verify user
-      return false;
+      return this.$store.state.isUserLogin;
     },
   },
 };
