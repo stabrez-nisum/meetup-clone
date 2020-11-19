@@ -27,7 +27,7 @@
           <p>
             Organized by <strong>{{ event.organizer }}</strong>
           </p>
-          <b-button :href="'/event/' + event._id" variant="primary"
+          <b-button :href="'/event/' + event.category + '/' + event._id" variant="primary"
             >Checkout Event</b-button
           >
         </template>
