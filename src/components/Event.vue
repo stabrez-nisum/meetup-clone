@@ -28,6 +28,7 @@
       <hr />
       <h4>Details</h4>
       <p>{{ event.description }}</p>
+      <hr />
       <div class="d-flex justify-content-between">
         <div>
           <h4>Attendees ({{ event.attendees }})</h4>
@@ -39,6 +40,7 @@
         </div>
       </div>
     </b-container>
+    <hr />
   </div>
 </template>
 
