@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="px-5  ">
-      <h1>Events near you</h1></div>
+      <h1>{{heading}}</h1></div>
     <div class="d-flex justify-content-around my-5">
       <b-card
         :title="event.name"
@@ -44,6 +44,10 @@ export default {
       type: Array,
       required: true,
     },
+    heading:{
+      type:String,
+      default:"Events near you "
+    }
   }
 };
 </script>
