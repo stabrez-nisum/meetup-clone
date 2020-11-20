@@ -6,7 +6,10 @@
       </b-navbar-brand>
 
       <b-collapse v-if="isUser" id="nav-collapse" is-nav>
-        <div v-if="$route.name !=='Profile'" class="d-flex justify-content-center">
+        <div
+          v-if="$route.name !== 'Profile'"
+          class="d-flex justify-content-center"
+        >
           <b-navbar>
             <b-nav-form>
               <b-input-group>
@@ -25,6 +28,11 @@
         </div>
 
         <b-navbar-nav class="ml-auto">
+          <b-navbar-nav class="ml-auto py-2">
+            <b-nav-item href="/create/event"
+              ><strong>Create Event</strong></b-nav-item
+            >
+          </b-navbar-nav>
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
@@ -59,7 +67,7 @@ export default {
   data() {
     return {
       // isProfile : false
-    }
+    };
   },
   computed: {
     // ...mapState({userName:'loggedInUser'}),
