@@ -77,6 +77,6 @@ body {
 
 #footer {
     margin-top: auto;
-    background-color: black;
+    background-color:#dc3545;
 }
 </style>
