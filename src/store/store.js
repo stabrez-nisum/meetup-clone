@@ -5,22 +5,27 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        isUserLogin: false
+        isUserLogin : localStorage.getItem("loginStatus"),
+        loggedInUser :localStorage.getItem("loggedInUserName")
     },
     mutations: {
         updateState(state, payload) {
-            state.isUserLogin = payload
+            state.isUserLogin = payload.loginStatus,
+            state.loggedInUser = payload.userName
+            console.log(state.isUserLogin)
         }
     },
     getters: {
         isUserLogin: state => {
             state.isUserLogin;
-            // console.log(state.isUserLogin)
+            state.loggedInUser;
+             console.log(state.isUserLogin)
         } 
     },
     actions: {
         updateState({commit}, payload){
             commit("updateState",payload)
+            
         }
     }
 });

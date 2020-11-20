@@ -31,3 +31,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.landing-image {
+  width: 100%;
+  height: 70%;
+  margin-top: -500px;
+}
+</style>

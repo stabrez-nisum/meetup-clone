@@ -53,20 +53,25 @@ export default {
   },
   methods: {
     geoLocator() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            this.getAddressFrom(
-              position.coords.latitude,
-              position.coords.longitude
-            );
-          },
-          (error) => {
-            console.log(error.message);
-          }
-        );
-      } else {
-        console.log("your browser does not support geolocation API");
+      if (this.selectedLocation != null) {
+        var dropdwnSelection = this.selectedLocation;
+      }
+      if (!dropdwnSelection) {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              this.getAddressFrom(
+                position.coords.latitude,
+                position.coords.longitude
+              );
+            },
+            (error) => {
+              console.log(error.message);
+            }
+          );
+        } else {
+          console.log("your browser does not support geolocation API");
+        }
       }
     },
     getAddressFrom(lat, long) {

@@ -6,7 +6,7 @@
       </b-navbar-brand>
 
       <b-collapse v-if="isUser" id="nav-collapse" is-nav>
-         <div class="d-flex justify-content-center">
+        <div v-if="$route.name !=='Profile'" class="d-flex justify-content-center">
           <b-navbar>
             <b-nav-form>
               <b-input-group>
@@ -28,18 +28,21 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <b-button class="mr-1" variant="danger" pill>{{nameIcon}}</b-button>
-              <strong>{{userName}}</strong>
+              <b-button class="mr-1" variant="danger" pill>{{
+                nameIcon
+              }}</b-button>
+              <!-- <strong>{{$store.state.loggedInUser}}</strong>  //we can get directly from the store -->
+              <strong>{{ userName }}</strong>
             </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <b-dropdown-item href="/profile">Profile</b-dropdown-item>
+            <b-dropdown-item @click="signOut" href="/"
+              >Sign Out</b-dropdown-item
+            >
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
 
       <b-collapse v-else id="nav-collapse" is-nav>
-       
-
         <b-navbar-nav class="ml-auto">
           <b-nav-item href="/login"><strong>Login</strong></b-nav-item>
           <b-nav-item href="/signup"><strong>Signup</strong></b-nav-item>
@@ -50,26 +53,32 @@
 </template>
 
 <script>
+// import { mapState } from 'vuex';
 export default {
   name: "Header",
   data() {
     return {
-     userName : "",
-     nameIcon : ""
-    }
-  },
-  mounted() {
-    let userName = localStorage.getItem("loginUser");
-    userName = JSON.parse(userName);
-    if(userName){
-    this.userName = userName.name;
-    this.nameIcon = (this.userName.charAt(0)).toUpperCase();
+      // isProfile : false
     }
   },
   computed: {
+    // ...mapState({userName:'loggedInUser'}),
+    userName() {
+      return this.$store.state.loggedInUser;
+    },
+    nameIcon() {
+      return this.$store.state.loggedInUser.charAt(0).toUpperCase();
+    },
     isUser() {
       // Based on condition verify user
       return this.$store.state.isUserLogin;
+    },
+  },
+  methods: {
+    signOut() {
+      localStorage.removeItem("loginUser");
+      localStorage.removeItem("loginStatus");
+      localStorage.removeItem("loggedInUserName");
     },
   },
 };

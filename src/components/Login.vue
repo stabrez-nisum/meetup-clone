@@ -58,7 +58,6 @@ export default {
     return {
       loginForm: { email: "", password: "" },
       usersList: [],
-      loggedInUser: "",
     };
   },
   props: ["users"],
@@ -79,7 +78,11 @@ export default {
           localStorage.setItem("loginUser", JSON.stringify(this.loginForm));
           this.loggedInUser = loginUser.name;
           this.$bvToast.show("login-toast");
-          this.$store.commit("updateState", true);
+          // this.$store.commit("updateState", true);
+          localStorage.setItem("loginStatus", true);
+          localStorage.setItem("loggedInUserName", this.loggedInUser);
+          let payload = { loginStatus: true, userName: this.loggedInUser };
+          this.$store.dispatch("updateState", payload);
           this.$router.push("/home");
         } else {
           this.$bvToast.show("error-toast");

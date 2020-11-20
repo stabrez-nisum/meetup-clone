@@ -14,7 +14,9 @@ export default {};
 .footer {
    bottom: 0;
    width: 100%;
-   text-align: center;}
+   text-align: center;
+   color:white;
+   }
 p{
   margin-top:15px !important;
 }
