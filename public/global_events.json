@@ -7,9 +7,59 @@
         "location": "Hyderabad",
         "info": "Sunday, November 22, 2020 3:00 PM to 5:00 PM GMT+5:30 Every 4th Sunday of the month until December 27, 2020",
         "attendees": 10,
+        "attendeesDetails": [
+            {
+                "id": 1,
+                "name": "Tabrez shaik",
+                "member": "Tabrez",
+                "location": "Banglore",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Oragnizer"
+            },
+            {
+                "id": 2,
+                "name": "Leanne Graham",
+                "member": "Leanne Graham",
+                "location": "Bangalore",
+                "info": "Saturday, November 21, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 3,
+                "name": "Mounika",
+                "member": "Mounika",
+                "location": "Hyderabad",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 4,
+                "name": "Vinil",
+                "member": "Vinil",
+                "location": "Mumbai",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 5,
+                "name": "Sravani",
+                "member": "Sravani",
+                "location": "Hyderabad",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 6,
+                "name": "Ankush",
+                "member": "Sravani",
+                "location": "Hyderabad",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            }
+        ],
         "category": "global",
-        "details":"",
-        "description": "Hyderabad Orators Club first meet 2020"        
+        "details": "",
+        "description": "Hyderabad Orators Club first meet 2020"
     },
     {
         "_id": "5bd44827429e8654fc8e5a4c2",
@@ -19,8 +69,51 @@
         "location": "Bangalore",
         "info": "Saturday, November 21, 2020 3:00 PM to 5:00 PM GMT+5:30",
         "attendees": 5,
+        "status": "organizer",
+        "attendeesDetails": [
+            {
+                "id": 1,
+                "name": "Leanne Graham",
+                "member": "Leanne Graham",
+                "location": "Bangalore",
+                "info": "Saturday, November 21, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 2,
+                "name": "Mounika",
+                "member": "Mounika",
+                "location": "Hyderabad",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 3,
+                "name": "Vinila",
+                "member": "Vinila",
+                "location": "Mumbai",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 4,
+                "name": "Sravani",
+                "member": "Sravani",
+                "location": "Hyderabad",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            },
+            {
+                "id": 5,
+                "name": "Tabrez shaik",
+                "member": "Tabrez",
+                "location": "Banglore",
+                "info": "Saturday, November 20, 2020 3:00 PM to 5:00 PM GMT+5:30",
+                "status": "Member"
+            }
+        ],
         "category": "global",
-        "details":"",
+        "details": "",
         "description": "AGENDA - Deployment Strategies - Exercise: Deployment Strategies - Template Overview and Elements - Exercise: Install and work with Templates"
     },
     {
@@ -32,7 +125,7 @@
         "info": "Saturday, November 21, 2020 10:00 AM to 12:00 PM GMT+5:30",
         "attendees": 12,
         "category": "global",
-        "details":"",
+        "details": "",
         "description": "We created the Fullstack India Meetup group to form a community of passionate developers to discuss ideas on new programming ideas. This group is for anyone who is interested in staying up to date with recent innovations in the frontend/fullstack ecosystem."
     },
     {
@@ -44,7 +137,7 @@
         "info": "Saturday, December 5, 2020, 10:00 AM to Sunday, December 6, 2020, 5:00 PM GMT+5:30",
         "attendees": 30,
         "category": "global",
-        "details":"",
+        "details": "",
         "description": "We are back with the 3rd Edition of PyConf Hyderabad 2020. PyConf Hyderabad is the regional gathering for the community that uses and develops the open-source Python Programming Language."
     }
 ]

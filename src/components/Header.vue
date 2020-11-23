@@ -66,7 +66,6 @@ export default {
   name: "Header",
   data() {
     return {
-      // isProfile : false
     };
   },
   computed: {

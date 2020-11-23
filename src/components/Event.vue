@@ -30,8 +30,25 @@
       <p>{{ event.description }}</p>
       <hr />
       <div class="d-flex justify-content-between">
-        <div>
-          <h4>Attendees ({{ event.attendees }})</h4>
+        <div style="width: 70%">
+          <h4>Attendees ({{ noOfAttendees }})</h4>
+          <div class="flex-container">
+            <b-card
+              class="mr-2 mb-2"
+              v-for="(item, eventIndex) in attendeesDetails"
+              :key="eventIndex"
+            >
+              <b-card-text>
+                <b-button class="mr-1" variant="danger" pill>
+                  {{ nameIcon[eventIndex] }}</b-button
+                >
+                <p>
+                  <b>{{ item.name }}</b>
+                </p>
+                <p>{{ item.status }}</p>
+              </b-card-text>
+            </b-card>
+          </div>
         </div>
         <div>
           <b-button variant="outline-danger" size="lg">
@@ -52,6 +69,9 @@ export default {
     return {
       event: {},
       globalEvents: [],
+      attendeesDetails: [],
+      nameIcon: [],
+      noOfAttendees: "",
     };
   },
   mounted() {
@@ -59,6 +79,19 @@ export default {
     this.event = this.globalEvents.find(
       (el) => el._id == this.$route.params.id
     );
+    if (this.event.attendeesDetails != null) {
+      this.attendeesDetails = this.event.attendeesDetails;
+      this.attendeesDetails.map((icon) => {
+        var spaceIndex = icon.name.match(/\b(\w)/g);
+        this.nameIcon.push(spaceIndex.join("").toUpperCase());
+      });
+      this.noOfAttendees = this.event.attendeesDetails.length;
+    } else {
+      this.noOfAttendees = 0;
+    }
+  },
+  methods: {
+    attend() {},
   },
 };
 </script>
@@ -67,5 +100,14 @@ export default {
 .event-image {
   height: 390px;
   width: 600px;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-container > div {
+  width: 157px;
+  margin: 10px;
+  text-align: center;
 }
 </style>
