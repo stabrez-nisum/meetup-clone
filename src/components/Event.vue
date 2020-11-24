@@ -39,7 +39,7 @@
               :key="eventIndex"
             >
               <b-card-text>
-                <b-button class="mr-1" variant="danger" pill>
+                <b-button class="mr-1" variant="primary" pill>
                   {{ nameIcon[eventIndex] }}</b-button
                 >
                 <p>

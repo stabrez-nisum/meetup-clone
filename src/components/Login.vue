@@ -20,28 +20,44 @@
       Password or username is incorrect, please try again...
     </b-toast>
 
-    <form id="login-form" class="container">
+    <form id="login-form" class="container" @submit="login">
       <h3>Login</h3>
 
       <div class="form-group">
         <label>Email address</label>
-        <input type="email" class="form-control" v-model="loginForm.email" />
+        <input
+          type="email"
+          class="form-control"
+          v-model="loginForm.email"
+          @blur="$v.loginForm.email.$touch()"
+        />
         <small class="form-text text-muted" style="display: flex"
           >We'll never share your email with anyone else.</small
         >
+        <template v-if="$v.loginForm.email.$error">
+          <p class="errorMsg" v-if="!$v.loginForm.email.required">
+            Email is required
+          </p>
+          <p class="errorMsg" v-if="!$v.loginForm.email.email">
+            Enter valid Email Id
+          </p>
+        </template>
       </div>
       <div class="form-group">
         <label>Password</label>
         <input
           type="password"
           class="form-control"
-          v-model="loginForm.password"
+          v-model="loginForm.password"  @blur="$v.loginForm.password.$touch()"
         />
+        <template v-if="$v.loginForm.password.$error">
+          <p class="errorMsg" v-if="!$v.loginForm.password.required">
+            Email is required
+          </p>
+        </template>
       </div>
       <div class="form-group">
-        <button type="submit" class="form-control btn-danger" @click="login">
-          Login
-        </button>
+        <button :disabled="$v.$invalid" type="submit" class="form-control btn-danger">Login</button>
       </div>
       <hr />
       <div style="text-align: center">
@@ -52,6 +68,7 @@
 </template>
 
 <script>
+import { required, email } from "vuelidate/lib/validators";
 export default {
   name: "Login",
   data() {
@@ -59,6 +76,17 @@ export default {
       loginForm: { email: "", password: "" },
       usersList: [],
     };
+  },
+  validations: {
+    loginForm: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required,
+      },
+    },
   },
   props: ["users"],
   mounted() {

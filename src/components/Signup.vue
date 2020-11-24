@@ -4,7 +4,7 @@
       <b-toast id="success-toast" variant="success">
         <template #toast-title>
           <div class="d-flex flex-grow-1 align-items-baseline">
-            <strong class="mr-auto">Login Failure </strong>
+            <strong class="mr-auto">Registration success </strong>
             <small class="text-muted mr-2">2 seconds ago</small>
           </div>
         </template>
@@ -14,25 +14,42 @@
       <b-toast id="error-toast" variant="danger">
         <template #toast-title>
           <div class="d-flex flex-grow-1 align-items-baseline">
-            <strong class="mr-auto">Login Failure </strong>
+            <strong class="mr-auto">Register Failure </strong>
             <small class="text-muted mr-2">2 seconds ago</small>
           </div>
         </template>
         You have been already registered.
       </b-toast>
     </div>
-    <form id="signup-form" class="container">
+    <form id="signup-form" class="container" @submit="signup" novalidate>
       <h3>Sign up</h3>
       <div class="form-group">
         <label>Your name</label>
-        <input type="name" class="form-control" v-model="signupForm.name" />
+        <input
+          type="name"
+          class="form-control"
+          v-model="signupForm.name"
+          @blur="$v.signupForm.name.$touch()"
+        />
+        <template v-if="$v.signupForm.name.$error">
+          <p class="errorMsg" v-if="!$v.signupForm.name.required">Name is required</p>
+        </template>
       </div>
       <div class="form-group">
         <label>Email address</label>
-        <input type="email" class="form-control" v-model="signupForm.email" />
+        <input
+          type="email"
+          class="form-control"
+          v-model="signupForm.email"
+          @blur="$v.signupForm.email.$touch()"
+        />
         <small class="form-text text-muted" style="display: flex"
           >We'll never share your email with anyone else.</small
         >
+        <template v-if="$v.signupForm.email.$error">
+          <p class="errorMsg" v-if="!$v.signupForm.email.required">Email is required</p>
+           <p class="errorMsg" v-if="!$v.signupForm.email.email">Enter valid Email Id</p>
+        </template>
       </div>
       <div class="form-group">
         <label>Password</label>
@@ -40,7 +57,13 @@
           type="password"
           class="form-control"
           v-model="signupForm.password"
+          @blur="$v.signupForm.password.$touch()"
         />
+        <template v-if="$v.signupForm.password.$error">
+          <p class="errorMsg" v-if="!$v.signupForm.password.required">Password is required</p>
+          <p class="errorMsg" v-if="!$v.signupForm.password.minLength">The min length must be 3 charcters</p>
+          <p class="errorMsg" v-if="!$v.signupForm.password.maxLength">The length not exceeds 8 charcters</p>
+        </template>
       </div>
       <div class="form-group">
         <small class="form-text text-muted">
@@ -49,7 +72,7 @@
         </small>
       </div>
       <div class="form-group">
-        <button type="submit" class="form-control btn-danger" @click="signup">
+        <button :disabled="$v.$invalid" type="submit" class="form-control btn-danger">
           Submit
         </button>
       </div>
@@ -77,6 +100,7 @@
 </template>
 
 <script>
+import { required, email, minLength, maxLength} from "vuelidate/lib/validators";
 export default {
   name: "Signup",
   data() {
@@ -84,6 +108,22 @@ export default {
       signupForm: { name: "", email: "", password: "" },
       users: [],
     };
+  },
+  validations: {
+    signupForm: {
+      name: {
+        required,
+      },
+      email: {
+        required,
+        email
+      },
+      password: {
+        required,
+        minLength:minLength(3),
+        maxLength:maxLength(8)
+      },
+    },
   },
   mounted() {
     if (localStorage.users) {
@@ -95,7 +135,6 @@ export default {
       let registeredUser = this.users.find(
         (el) => el.email == this.signupForm.email
       );
-      console.log(registeredUser);
       if (!registeredUser) {
         this.users.push(this.signupForm);
         localStorage.setItem("users", JSON.stringify(this.users));

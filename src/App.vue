@@ -46,4 +46,7 @@ body {
     margin-top: auto;
     background-color:#dc3545;
 }
+.errorMsg{
+  color: red;
+}
 </style>
