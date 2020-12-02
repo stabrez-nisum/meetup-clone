@@ -17,6 +17,10 @@ Vue.use(IconsPlugin);
 Vue.use(VueRouter);
 Vue.use(Vuelidate);
 
+import VueFormWizard from 'vue-form-wizard'
+import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+Vue.use(VueFormWizard)
+
 Vue.config.productionTip = false
 const router = new VueRouter({
   mode: 'history',
