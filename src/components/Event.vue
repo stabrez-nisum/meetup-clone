@@ -25,7 +25,6 @@
             id="modal-center"
             centered
             :title="'Share event: ' + event.name"
-            cancel-disabled="true"
           >
             <template #modal-footer="{ ok }">
               <b-button variant="danger" @click="ok()"> OK </b-button>
