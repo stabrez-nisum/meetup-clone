@@ -18,10 +18,22 @@
                     ><b-icon icon="search"></b-icon
                   ></b-input-group-text>
                 </template>
+
                 <b-form-input
                   class="mr-sm-2 header-search"
-                  placeholder="Search Events"
+                  placeholder="Location"
+                  list="eventSearch"
+                  v-model="eventSearch"
                 ></b-form-input>
+
+                <datalist id="eventSearch">
+                  <option
+                    v-for="(gEvents, eventIndex) in globalEvents"
+                    :key="eventIndex"
+                  >
+                    {{ gEvents.name }}
+                  </option>
+                </datalist>
               </b-input-group>
             </b-nav-form>
           </b-navbar>
@@ -62,11 +74,17 @@
 
 <script>
 // import { mapState } from 'vuex';
+import GlobalEvents from "../../public/global_events.json";
 export default {
   name: "Header",
   data() {
     return {
+      eventSearch: "",
+      globalEvents: [],
     };
+  },
+  mounted() {
+    this.globalEvents = GlobalEvents;
   },
   computed: {
     // ...mapState({userName:'loggedInUser'}),
